@@ -1,5 +1,5 @@
 {
-  //安装eslint,stylelint,prettier插件
+  //确保安装Vetur,eslint,stylelint,prettier插件
   "editor.formatOnSave": false,
   "[scss]":{
     "editor.formatOnSave": true
@@ -18,4 +18,6 @@
       "autoFix": true
     }
   ],
+  "css.validate": false,
+  "scss.validate": false,
 }
