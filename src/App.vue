@@ -26,4 +26,12 @@ export default {
   text-align: center;
   width: 0;
 }
+
+#a {
+  #b {
+    #c {
+      color: 123;
+    }
+  }
+}
 </style>
