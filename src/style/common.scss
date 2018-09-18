@@ -1,10 +1,11 @@
 @for $i from 1 to 10 {
   .con-#{$i} {
-    align-self: auto;
-    bottom: auto;
     outline: 1px tomato;
   }
 }
 
 a {
+bottom: auto;
+ align-self: auto;
+    
 }
