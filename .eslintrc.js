@@ -3,12 +3,20 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ['plugin:vue/essential', '@vue/standard'],
+  extends: ["plugin:vue/strongly-recommended", "@vue/prettier"],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    "no-console": "off",
+    "no-debugger": "off",
+    "vue/attribute-hyphenation": ["error", "always"],
+    "vue/html-indent": ["error", 2],
+    "vue/html-self-closing": "error",
+    "vue/require-default-prop": "error",
+    "vue/require-prop-types": "error",
+    "vue/attributes-order": "error",
+    "vue/html-quotes": ["error", "double"],
+    "vue/order-in-components": "error"
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: "babel-eslint"
   }
-}
+};
