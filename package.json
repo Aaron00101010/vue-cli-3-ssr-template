@@ -40,8 +40,8 @@
       "stylelint --fix ./src/**/*.vue",
       "git add"
     ],
-    "*.{css,scss}":[
-      "stylelint --fix ./src/**/*.{css,scss}"
+    "*.scss":[
+      "stylelint --fix ./src/**/*.scss"
     ]
   }
 }
