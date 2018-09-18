@@ -9,6 +9,7 @@
   },
   "prettier.eslintIntegration": true,
   "prettier.stylelintIntegration": true,
+  "prettier.disableLanguages": [],
   "eslint.autoFixOnSave": true,
   "eslint.validate": [
     "javascript",
