@@ -16,11 +16,16 @@
     "@vue/cli-plugin-eslint": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
     "@vue/eslint-config-prettier": "^3.0.3",
-    "@vue/eslint-config-standard": "^3.0.3",
     "lint-staged": "^7.2.2",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.17",
+    "stylelint": "^9.5.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^1.0.0",
+    "stylelint-scss": "^3.3.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -33,6 +38,9 @@
     "*.vue": [
       "vue-cli-service lint",
       "git add"
+    ],
+    ".{vue,css,scss,sass,less}":[
+      "stylelint --fix **/*.{vue,css,scss,sass,less}"
     ]
   }
 }
