@@ -19,13 +19,14 @@
     "lint-staged": "^7.2.2",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.17",
     "stylelint": "^9.5.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-recommended-scss": "^3.2.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-order": "^1.0.0",
-    "stylelint-scss": "^3.3.0"
+    "stylelint-processor-html": "^1.0.0",
+    "stylelint-scss": "^3.3.0",
+    "vue-template-compiler": "^2.5.17"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -40,7 +41,7 @@
       "stylelint --fix ./src/**/*.vue",
       "git add"
     ],
-    "*.scss":[
+    "*.scss": [
       "stylelint --fix './src/**/*.scss'",
       "git add"
     ]

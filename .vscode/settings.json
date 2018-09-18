@@ -1,10 +1,10 @@
 {
   //确保安装Vetur,eslint,stylelint,prettier插件
   "editor.formatOnSave": false,
-  "[scss]":{
+  "[scss]": {
     "editor.formatOnSave": true
   },
-  "[css]":{
+  "[css]": {
     "editor.formatOnSave": true
   },
   "prettier.eslintIntegration": true,
@@ -19,5 +19,5 @@
     }
   ],
   "css.validate": false,
-  "scss.validate": false,
+  "scss.validate": false
 }
