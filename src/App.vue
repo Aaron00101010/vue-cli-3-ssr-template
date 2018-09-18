@@ -19,6 +19,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/style/common.scss';
+
 #app {
   color: #2c3e50;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
