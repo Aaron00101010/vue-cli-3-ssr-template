@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    hello ssr
+    <img
+      src="./assets/logo.png"
+      alt="">
+    <p>hello ssr</p>
   </div>
 </template>
 
@@ -17,6 +20,5 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   margin-top: 60px;
   text-align: center;
-  width: 0;
 }
 </style>
