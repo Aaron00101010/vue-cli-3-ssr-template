@@ -1,8 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import hello from '@/components/hello'
-import world from '@/components/world'
-import notFound from '@/components/404'
 
 Vue.use(Router)
 
@@ -12,18 +9,18 @@ export function createRouter () {
     routes: [
       {
         path: '/hello',
-        component: hello
+        component: () => import('@/components/hello')
       },
       {
         path: '/world',
-        component: world
+        component: () => import('@/components/world')
       },
       {
         path: '/'
       },
       {
         path: '*',
-        component: notFound
+        component: () => import('@/components/404')
       }
     ]
   })

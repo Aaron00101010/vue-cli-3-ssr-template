@@ -1,9 +1,6 @@
-/* eslint-disable no-console */
-
 const fs = require('fs')
 const path = require('path')
 const express = require('express')
-// var proxy = require('http-proxy-middleware')
 const { createBundleRenderer } = require('vue-server-renderer')
 
 const devServerBaseURL = process.env.DEV_SERVER_BASE_URL || 'http://localhost'
