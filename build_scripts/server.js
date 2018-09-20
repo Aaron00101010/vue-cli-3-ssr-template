@@ -18,7 +18,7 @@ function createRenderer (bundle, options) {
 }
 
 let renderer
-const templatePath = path.resolve(__dirname, '../src/index.ssr.html')
+const templatePath = path.resolve(__dirname, '../dist/index.ssr.html')
 
 const bundle = require('../dist/vue-ssr-server-bundle.json')
 const template = fs.readFileSync(templatePath, 'utf-8')

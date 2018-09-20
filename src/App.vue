@@ -3,7 +3,7 @@
     <img
       src="./assets/logo.png"
       alt="">
-    <p>hello ssrr</p>
+    <p>hello ssrr a</p>
   </div>
 </template>
 
