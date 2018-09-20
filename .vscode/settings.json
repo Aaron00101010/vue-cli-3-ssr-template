@@ -1,5 +1,5 @@
 {
-  //确保安装Vetur,eslint,stylelint,prettier插件
+  //确保安装Vetur,eslint,stylelint,prettier,editorConfig for vscode插件
   "editor.formatOnSave": false,
   "[scss]": {
     "editor.formatOnSave": true

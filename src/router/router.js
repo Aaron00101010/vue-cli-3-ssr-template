@@ -6,6 +6,7 @@ Vue.use(Router)
 export function createRouter () {
   return new Router({
     mode: 'history',
+    scrollBehavior: () => ({ y: 0 }),
     routes: [
       {
         path: '/hello',
@@ -16,11 +17,15 @@ export function createRouter () {
         component: () => import('@/components/world')
       },
       {
+        path: '/404',
+        component: () => import('@/components/404')
+      },
+      {
         path: '/'
       },
       {
         path: '*',
-        component: () => import('@/components/404')
+        redirect: '/404'
       }
     ]
   })
