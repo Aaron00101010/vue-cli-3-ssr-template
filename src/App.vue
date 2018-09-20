@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <div>
+      <router-link :to="{path:'/cn-node'}">cn-node</router-link>
+      &emsp;
       <router-link :to="{path:'/hello'}">hello</router-link>
       &emsp;
       <router-link :to="{path:'/world'}">world</router-link>
     </div>
-    <img
-      src="./assets/logo.png"
-      alt="">
+    <img src="./assets/logo.png" alt="">
     <router-view/>
   </div>
 </template>

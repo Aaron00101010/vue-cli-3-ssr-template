@@ -8,6 +8,9 @@ export function createRouter () {
     mode: 'history',
     scrollBehavior: () => ({ y: 0 }),
     routes: [
+      { path: '/cn-node',
+        component: () => import('@/components/cn-node')
+      },
       {
         path: '/hello',
         component: () => import('@/components/hello')

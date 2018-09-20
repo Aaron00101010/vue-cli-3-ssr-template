@@ -14,7 +14,14 @@ module.exports = {
     'vue/require-prop-types': 'error',
     'vue/attributes-order': 'error',
     'vue/html-quotes': ['error', 'double'],
-    'vue/order-in-components': 'error'
+    'vue/order-in-components': 'error',
+    "vue/max-attributes-per-line": [2, {
+      "singleline": 3,
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": true
+      }
+    }]
   },
   parserOptions: {
     parser: 'babel-eslint'
