@@ -16,12 +16,6 @@ module.exports = {
       template: './public/index.html',
       filename: 'index.html',
       title: 'Index Page'
-    },
-    index2: {
-      entry: `./src/entry-${target}`,
-      template: './public/index.html',
-      filename: 'index2.html',
-      title: 'Index2 Page'
     }
   },
   configureWebpack: () => ({
