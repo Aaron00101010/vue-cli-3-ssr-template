@@ -1,9 +1,14 @@
 <template>
   <div id="app">
+    <div>
+      <router-link :to="{path:'/hello'}">hello</router-link>
+      &emsp;
+      <router-link :to="{path:'/world'}">world</router-link>
+    </div>
     <img
       src="./assets/logo.png"
       alt="">
-    <p>hello ssrr a</p>
+    <router-view/>
   </div>
 </template>
 

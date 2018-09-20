@@ -6,77 +6,37 @@ const express = require('express')
 // var proxy = require('http-proxy-middleware')
 const { createBundleRenderer } = require('vue-server-renderer')
 
-// const devServerBaseURL = process.env.DEV_SERVER_BASE_URL || 'http://localhost'
+const devServerBaseURL = process.env.DEV_SERVER_BASE_URL || 'http://localhost'
 const devServerPort = process.env.DEV_SERVER_PORT || 4242
 
 const app = express()
-
-function createRenderer (bundle, options) {
-  return createBundleRenderer(bundle, Object.assign(options, {
-    runInNewContext: false
-  }))
-}
-
-let renderer
-const templatePath = path.resolve(__dirname, '../dist/index.ssr.html')
-
-const bundle = require('../dist/vue-ssr-server-bundle.json')
-const template = fs.readFileSync(templatePath, 'utf-8')
-const clientManifest = require('../dist/vue-ssr-client-manifest.json')
-renderer = createRenderer(bundle, {
-  template,
-  clientManifest
-})
-
-// if (process.env.NODE_ENV !== 'production') {
-//   app.use('/js/main*', proxy({
-//     target: `${devServerBaseURL}/${devServerPort}`,
-//     changeOrigin: true,
-//     pathRewrite: function (path) {
-//       return path.includes('main')
-//         ? '/main.js'
-//         : path
-//     },
-//     prependPath: false
-//   }))
-
-//   app.use('/*hot-update*', proxy({
-//     target: `${devServerBaseURL}/${devServerPort}`,
-//     changeOrigin: true
-//   }))
-
-//   app.use('/sockjs-node', proxy({
-//     target: `${devServerBaseURL}/${devServerPort}`,
-//     changeOrigin: true,
-//     ws: true
-//   }))
-// }
-
 app.use('/js', express.static(path.resolve(__dirname, '../dist/js')))
 app.use('/css', express.static(path.resolve(__dirname, '../dist/css')))
 app.use('/img', express.static(path.resolve(__dirname, '../dist/img')))
 
+const templatePath = path.resolve(__dirname, '../dist/index.ssr.html')
+const bundle = require('../dist/vue-ssr-server-bundle.json')
+const template = fs.readFileSync(templatePath, 'utf-8')
+const clientManifest = require('../dist/vue-ssr-client-manifest.json')
+
+let renderer = createBundleRenderer(bundle, {
+  runInNewContext: false,
+  template,
+  clientManifest
+})
+
 app.get('*', (req, res) => {
-  res.setHeader('Content-Type', 'text/html')
-
-  const context = {
-    title: 'Vue HN 2.0', // default title
-    url: req.url
-  }
-
+  const context = { url: req.url }
   renderer.renderToString(context, (err, html) => {
     if (err) {
-      if (err.url) {
-        res.redirect(err.url)
+      if (err.message === 404) {
+        res.status(404).end('Page not found')
       } else {
-        // Render Error Page or Redirect
-        res.status(500).end('500 | Internal Server Error')
-        console.error(`error during render : ${req.url}`)
-        console.error(err.stack)
+        res.status(500).end('Internal Server Error')
       }
+    } else {
+      res.end(html)
     }
-    res.status(context.HTTPStatus || 200)
-    res.send(html)
   })
 })
 
@@ -84,6 +44,6 @@ app.listen(devServerPort, (err) => {
   if (err) {
     console.log(err)
   } else {
-    console.log(`server listen in ${devServerPort}`)
+    console.log(`server listen in ${devServerBaseURL}:${devServerPort}`)
   }
 })

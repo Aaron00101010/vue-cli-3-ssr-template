@@ -10,15 +10,8 @@ const target = TARGET_NODE
   : 'client'
 
 module.exports = {
-  pages: {
-    index: {
-      entry: `./src/entry-${target}`,
-      template: './public/index.html',
-      filename: 'index.html',
-      title: 'Index Page'
-    }
-  },
   configureWebpack: () => ({
+    entry: `./src/entry-${target}`,
     target: TARGET_NODE ? 'node' : 'web',
     node: TARGET_NODE ? undefined : false,
     plugins: [
