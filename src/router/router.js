@@ -24,7 +24,8 @@ export function createRouter () {
         component: () => import('@/components/404')
       },
       {
-        path: '/'
+        path: '/',
+        redirect: '/hello'
       },
       {
         path: '*',

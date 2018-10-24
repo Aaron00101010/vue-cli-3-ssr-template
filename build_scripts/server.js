@@ -10,6 +10,7 @@ const app = express()
 app.use('/js', express.static(path.resolve(__dirname, '../dist/js')))
 app.use('/css', express.static(path.resolve(__dirname, '../dist/css')))
 app.use('/img', express.static(path.resolve(__dirname, '../dist/img')))
+app.use('/favicon', express.static(path.resolve(__dirname, '../dist/favicon')))
 
 const templatePath = path.resolve(__dirname, '../dist/index.ssr.html')
 const bundle = require('../dist/vue-ssr-server-bundle.json')

@@ -5,7 +5,7 @@ import { createStore } from './store/store'
 
 export function createApp () {
   const router = createRouter()
-  const store = createStore
+  const store = createStore()
   const app = new Vue({
     router,
     store,

@@ -6,17 +6,22 @@
 </template>
 
 <script>
-import axios from 'axios'
+import cnNodeStoreModule from '@/store/cn-node'
 export default {
   data () {
-    return {
-      list: {}
+    return {}
+  },
+  asyncData ({ store, route }) {
+    store.registerModule('cnNode', cnNodeStoreModule)
+    return store.dispatch('cnNode/getList')
+  },
+  computed: {
+    list () {
+      return this.$store.state.cnNode.list
     }
   },
-  asyncData (store, route) {
-    axios.get('https://cnodejs.org/api/v1/topics', (resp) => {
-      this.list = resp.data
-    })
+  destroyed () {
+    this.$store.unregisterModule('cnNode')
   }
 }
 </script>
